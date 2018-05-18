@@ -12,6 +12,10 @@ import android.widget.Toast;
 public abstract class BaseActivity extends AppCompatActivity {
 
     private static final int REQ_PERM = 99;
+    // 0. 사용할 권한 설정
+    String permissions[] =  {Manifest.permission.READ_CONTACTS
+            , Manifest.permission.WRITE_CONTACTS
+            , Manifest.permission.CALL_PHONE};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +27,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             init();
         }
     }
-
-    // 0. 사용할 권한 설정
-    String permissions[] = {Manifest.permission.READ_CONTACTS, Manifest.permission.WRITE_CONTACTS};
 
     // 1. 권한체크
     @TargetApi(Build.VERSION_CODES.M)
@@ -58,9 +59,5 @@ public abstract class BaseActivity extends AppCompatActivity {
         }
     }
 
-    private void init(){
-        setLayout();
-    }
-
-    public abstract void setLayout();
+    public abstract void init();
 }
