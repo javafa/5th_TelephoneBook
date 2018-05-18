@@ -23,6 +23,10 @@ public class MainActivity extends BaseActivity {
     PhoneAdapter adapter;
     RecyclerView recyclerView;
 
+    public MainActivity() {
+        super(Manifest.permission.READ_CONTACTS, Manifest.permission.WRITE_CONTACTS, Manifest.permission.CALL_PHONE);
+    }
+
     @Override
     public void init() {
         setContentView(R.layout.activity_main);
